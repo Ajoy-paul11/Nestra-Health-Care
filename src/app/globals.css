@@ -1,8 +1,11 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #F7F6F2;
+  --foreground: #025F67;
+  --accent-color: #063154;
+  --accent-secondary-color: #BCC5CC;
+  --accent-tertiary-color: #2F9D94;
 }
 
 @theme inline {
@@ -12,15 +15,57 @@
   --font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+/* Universal box-sizing for predictable layout */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
 }
 
+/* Remove default margin */
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+/* Set consistent font rendering for all browsers */
+html {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+
+  /* Prevent mobile browsers from resizing text */
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+  -moz-text-size-adjust: 100%;
+  -o-text-size-adjust: 100%;
+  /* -webkit-tap-highlight-color: rgba(0, 0, 0, 0); */
+  scroll-behavior: smooth;
+}
+
+/* Ensure body takes full viewport height */
 body {
   background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  color: #0b0b0b;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  min-height: 100%;
+  overflow-x: hidden;
+  text-rendering: optimizeSpeed;
+  font-feature-settings: "kern", "liga", "clig", "calt";
+}
+
+/* Remove tab highlight on mobile */
+a, button {
+  --webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+.green-shade-bg {
+  background-color: var(--foreground);
+}
+
+.text-accent {
+  color: var(--accent-tertiary-color);
 }
